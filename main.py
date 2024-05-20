@@ -4,8 +4,8 @@ import timeit
 import test_sorting
 
 print("-= ЗАДАНИЕ №3 =-")
-ARR = [[random.randint(1, 100) for i in range(100)], [random.randint(1, 100) for i in range(1000)],
-       [random.randint(1, 100) for i in range(10000)]]
+ARR = [[random.randint(1, 100) for i in range(100)],
+       [random.randint(1, 100) for i in range(1000)]]
 
 
 def get_trio(arr, type, table):
@@ -17,6 +17,7 @@ def get_trio(arr, type, table):
 
 
 table = []
+
 for arr in ARR:
     results = test_sorting.test(arr)
     arr_sorted = results[3]
@@ -24,11 +25,17 @@ for arr in ARR:
     get_trio(arr, "случайный", table)
     get_trio(arr_sorted, "отсорт.", table)
     get_trio(arr_reversed, "отсорт. обрат", table)
+
 print("o" + "-"*60 + "o")
 print("|{:<8} {:<15} {:<11} {:<11} {:<11}|".format("Длина", "Тип массива", "Гибрид", "Heapsort", "Quicksort"))
-print("o" + "-"*60 + "o")
+
+c = 0
 for row in table:
+    if c % 3 == 0:
+        print("|" + "-" * 60 + "|")
     print("|{:<8} {:<15} {:<11} {:<11} {:<11}|".format(*row))
+    c += 1
+
 print("o" + "-"*60 + "o")
 print("-= ЗАДАНИЕ №8 =-")
 
