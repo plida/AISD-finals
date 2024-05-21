@@ -77,7 +77,7 @@ def quick_sort(arr):
 
 
 def hybrid_sort(arr):
-    if len(arr) <= 100:
+    if len(arr) <= 1000:
         return insertion_sort(arr)
     else:
         arr2 = arr.copy()
